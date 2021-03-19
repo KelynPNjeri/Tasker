@@ -19,14 +19,15 @@
 - Webpack
 
 ## Live Demo
-[Live Demo](https://fervent-poitras-3af81c.netlify.app/)
+[Live Demo](https://thirsty-brahmagupta-0a2845.netlify.app/)
 
 
 ### Getting Started
-```
-Open Terminal
-run git clone `https://github.com/KelynPNjeri/Weather-App.git`
-Run `dist/index.html`  in your favorite browser.
+```bash
+$ git clone https://github.com/KelynPNjeri/Tasker.git
+$ cd Tasker
+$ npm install
+$ npm run dev
 ```
 
 
