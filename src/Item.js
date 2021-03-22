@@ -4,6 +4,7 @@ class Item {
   constructor(data = {}) {
     this.id = parseInt(data.id, 10) || undefined;
     this.title = data.title;
+    this.description = data.description;
     this.date = new Date(data.date);
     this.priority = data.priority;
     this.done = data.done === undefined ? false : data.done;
@@ -80,6 +81,7 @@ class Item {
     return {
       id: this.id,
       title: this.title,
+      description: this.description,
       date: this.date.toISOString().split('T')[0],
       priority: this.priority,
       done: this.done,

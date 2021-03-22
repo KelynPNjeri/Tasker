@@ -7,7 +7,7 @@ if (!localStorage.getItem('projects')) {
   localStorage.setItem('projects', '');
 }
 
-function render() {
+const render = () => {
   const body = document.getElementById('body');
   body.innerHTML = '';
   Item.toArray().forEach((item) => {
@@ -38,6 +38,7 @@ function render() {
       const form = document.querySelector('.form');
       form.elements.id.value = item.id;
       form.elements.title.value = item.title;
+      form.elements.description.value = item.description;
       [form.elements.date.value] = item.date.toISOString().split('T');
       form.elements.priority.value = item.priority;
       form.elements.done.value = item.done;
@@ -53,11 +54,11 @@ function render() {
     tr.append(td);
     body.append(tr);
   });
-}
+};
 
-function addItemToLibrary(data) {
+const addItemToLibrary = (data) => {
   new Item(data).save();
-}
+};
 
 const switchProject = (e) => {
   e.preventDefault();
@@ -92,7 +93,7 @@ const deleteProject = (e) => {
   render();
 };
 
-function renderProject(value) {
+const renderProject = (value) => {
   const a = document.createElement('a');
   a.href = '#';
   a.classList = 'project-name tooltip';
@@ -102,7 +103,7 @@ function renderProject(value) {
   a.addEventListener('click', switchProject);
 
   return a;
-}
+};
 
 const form = document.querySelector('.form');
 form.onsubmit = (e) => {
@@ -112,6 +113,7 @@ form.onsubmit = (e) => {
     id,
     done,
     title,
+    description,
     date,
     priority,
   } = e.target.elements;
@@ -120,6 +122,7 @@ form.onsubmit = (e) => {
     id: id.value,
     done: done.value,
     title: title.value,
+    description: description.value,
     date: date.value,
     priority: priority.value,
   });
